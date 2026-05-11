@@ -1,0 +1,9 @@
+# Env files with real credentials
+.env
+*.env
+secrets.txt
+
+# OS
+.DS_Store
+Thumbs.db
+
