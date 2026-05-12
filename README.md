@@ -1,34 +1,39 @@
 # Claude Scheduled Tasks
 
-Automated daily pipelines running via Claude's Cowork mode.
+Automated newsletter and analysis pipelines running daily via Claude Cowork.
 
-## Newsletters
+## Tasks
 
-| Task | Schedule | Description |
-|------|----------|-------------|
-| `daily-ai-newsletter` | 9:09 AM IST daily | AI Intel Drop — research, write, email + Substack + Medium |
-| `daily-world-news` | 8:09 AM IST daily | The World Briefing — geopolitics, markets, India lens, email + Substack + Medium |
+### 📰 daily-ai-newsletter
+**Schedule:** 9:00 AM IST daily  
+**Publishes to:** Substack (primary) → Medium (secondary) + 2 Substack Notes  
+**Pipeline:** Deduplicate → Research → Write HTML email → AI self-review → Send email → Canva infographics → Substack → Medium → Notes → Drive log → GitHub sync
 
-## Trading
+### 🌍 daily-world-news
+**Schedule:** 8:00 AM IST daily  
+**Publishes to:** Substack (primary) → Medium (secondary) + 2 Substack Notes  
+**Pipeline:** Research world + India stories → Write email → Substack → Medium → Notes → Drive log → GitHub sync
 
-| Task | Schedule | Description |
-|------|----------|-------------|
-| `daily-morning-briefing` | 7:37 AM IST daily | Indian markets morning scan, day trade ideas |
-| `weekly-trading-prep` | 7:03 PM IST Sunday | Deep market scan, full trading plan for the week |
-| `monday-premarket-scan` | 8:53 AM IST Monday | Pre-market entry levels and setups |
+### 📈 daily-morning-briefing
+**Schedule:** 7:30 AM IST daily  
+**Delivers:** Personal trading + news briefing via email + Discord
 
-## Structure
+### 📊 weekly-trading-prep
+**Schedule:** Sundays 8:00 AM IST  
+**Delivers:** Week-ahead trading setup — key levels, events, strategy
 
-Each folder contains a `SKILL.md` — the exact instructions Claude follows on every run. These are living documents; they get updated when bugs are fixed or new steps are added.
+### 🔍 monday-premarket-scan
+**Schedule:** Mondays 7:00 AM IST  
+**Delivers:** Pre-market scan with momentum picks and gaps to watch
 
-## Publishing
+### 🔔 substack-notes-drip
+**Schedule:** 12:30 PM IST daily  
+**Posts:** 3 standalone Substack Notes from today's newsletters + Canva visual  
+**Purpose:** Subscriber growth engine — 70-90% of new Substack subs come from Notes
 
-- **Newsletters** publish to email (EmailJS), Substack (`bytesizedbymanan.substack.com`), and Medium as a secondary channel
-- **Medium** has a 2-story/24h limit — Substack is always the guaranteed publish destination
-- **Google Drive** content system logs each run: Publishing Log + Topic Archive sheets
-
-## Content System (Google Drive)
-
-- Publishing Log: tracks every issue — headline, URLs, email status, review score
-- Topic Archive: deduplication history across all newsletter runs
-- Assets folder: infographic PNGs uploaded after each AI newsletter run
+## Architecture
+- All tasks run as Claude Cowork scheduled tasks
+- Infographics: Canva MCP (with matplotlib fallback)  
+- Hyperlink preservation: HTML ClipboardItem API on paste
+- Deduplication: Session transcript reading across last 4 runs
+- Version control: Each run auto-pushes updated SKILL.md here
