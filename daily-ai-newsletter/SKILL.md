@@ -53,42 +53,33 @@ Fix any failures before proceeding. Log what was fixed.
 ## STEP 4 — SEND EMAIL via EmailJS
 Read C:\Users\manan\OneDrive\Documents\Claude\Scheduled\daily-ai-newsletter\SKILL.md for EmailJS credentials. Send via Python subprocess curl. Verify response is "OK".
 
-## STEP 5 — CREATE 3 INFOGRAPHICS
-Python + matplotlib. These must look like professional editorial graphics — not academic charts. Readers will share these on social if they look good. If they look like a homework assignment, they won't.
+## STEP 5 — CREATE 3 INFOGRAPHICS VIA CANVA
 
-**Design rules (non-negotiable):**
-- WHITE background (#ffffff), NEVER grey
-- No chart borders/spines — `ax.spines[['top','right','left','bottom']].set_visible(False)` 
-- No emojis in titles — plain ASCII only (matplotlib can't render emoji)
-- Font: use `matplotlib.rcParams['font.family'] = 'DejaVu Sans'`
-- Title: large (22-26pt), bold, LEFT-aligned, sits ABOVE the chart with a colored accent line underneath
-- Subtitle: 13pt, grey (#666), LEFT-aligned below title
-- Labels: 13pt minimum, all values shown directly on bars/segments — NO legend if avoidable
-- Colors: use a tight palette of 2-3 — `#4f8ef7` (blue), `#f97316` (orange), `#10b981` (green)
-- Gridlines: light grey (`#e5e7eb`), horizontal only, behind bars
-- dpi=180, figsize varies by chart type (see below)
-- `plt.tight_layout(pad=2.5)` always
+Use the Canva MCP (mcp__01dda819-d5e2-4c5f-bc8e-e5e31beb7021) to generate professional, shareable graphics. These get embedded in Substack and shared as standalone visuals. They must look like something a top newsletter would publish — editorial, clean, bold.
 
-**infographic_1.png** — Lead story data viz (figsize=(10,6))
-  - Use REAL numbers from the story (benchmark scores, parameter counts, speed gains, cost deltas)
-  - Horizontal bar chart preferred for comparisons — easier to read on mobile
-  - Each bar: value label at end of bar in bold
-  - Title: "[METRIC] Compared" — specific, not generic like "AI Performance"
+### Infographic 1 — Lead Story Data Visual
+Call mcp__01dda819-d5e2-4c5f-bc8e-e5e31beb7021__generate-design with prompt:
+"Professional editorial infographic for an AI newsletter. Dark background #0f1117. Title: '[LEAD STORY HEADLINE - max 8 words]'. Show [REAL DATA from story — benchmark scores / model sizes / speed numbers / cost comparisons] as a clean horizontal bar chart or comparison table. Accent color #4f8ef7 (blue). White text. Bottom label: 'AI Intel Drop'. 1080x1080px. Clean, modern, no decorative elements."
 
-**infographic_2.png** — From the Frontier insight card (figsize=(10,5))
-  - NOT another bar chart — make this a visual summary card
-  - Large central stat or claim in 40pt bold centered
-  - 3 supporting points as icon + text rows (use ASCII symbols like >, *, -> instead of emoji)
-  - Colored left border accent strip (6px wide rectangle patch)
-  - Source credit at bottom right in 10pt grey
+### Infographic 2 — From the Frontier Insight Card  
+Call generate-design with prompt:
+"Bold insight card for AI newsletter. Dark background #0f1117. Large centered stat: '[BIGGEST NUMBER OR CLAIM from Frontier section]'. Below it: 3 bullet points of key context, white text 18px. Bottom: source outlet name in grey. Accent stripe color #f97316 (orange) on left edge. Clean editorial design. 1080x1080px. Font: bold, modern sans-serif."
 
-**infographic_3.png** — 5 Tools grid (figsize=(12,7))
-  - 5 cards in a 3+2 grid layout using `ax.add_patch(FancyBboxPatch(...))`
-  - Each card: colored top stripe (unique color per tool), tool name in 16pt bold, one-line description in 12pt grey, category tag in 10pt colored text
-  - Card bg: white with light shadow effect (draw slightly offset grey rect behind white rect)
-  - Title above grid: "5 Tools This Week" 22pt bold
+### Infographic 3 — 5 Tools This Week Grid
+Call generate-design with prompt:
+"5-panel grid card for AI newsletter tools section. White background. Title top: '5 Tools This Week' in dark #0f1117 bold. 5 cards in grid: each card has colored top stripe (use different colors: blue, orange, green, purple, red), tool name in bold, one-line description. Clean card design with subtle shadows. 1080x1350px (portrait for mobile). Professional newsletter style."
 
-Save all 3 to outputs directory. Verify each file exists and is >10KB before proceeding.
+For each:
+1. Call generate-design → get design ID
+2. Call export-design to get the PNG/JPG URL
+3. Download to outputs directory as infographic_1.png, infographic_2.png, infographic_3.png using mcp__workspace__bash curl
+
+If Canva MCP is unavailable or errors, fall back to Python matplotlib with these rules:
+- White bg, no spines, horizontal bars, values on bars, dpi=180, tight_layout(pad=2.5)
+- Colors: #4f8ef7 / #f97316 / #10b981, font size 13+minimum
+- No emoji in titles
+
+Verify all 3 files exist and are >10KB before proceeding.
 
 ## STEP 6 — PUBLISH TO SUBSTACK (PRIMARY — always completes)
 Navigate to https://bytesizedbymanan.substack.com/publish/post/new
@@ -121,4 +112,5 @@ Capture final Substack post URL.
 Chrome MCP deviceId: 69880aa4-82b2-48e7-a1a0-9ad94ed26496. Get tab ID via tabs_context_mcp.
 Navigate to https://medium.com/new-story (use JS: window.onbeforeunload=null; window.location.replace(url))
 Write clean editorial HTML: h2/p/blockquote/ul/li/pre/a/hr/strong/em only. No inline styles, no divs. Every factual claim must have a real <a href="SOURCE_URL">inline hyperlink</a>.
-Set clipboard AS HTML (not plain 
+Set clipboard AS HTML (not plain text) — this preserves all hyperlinks on paste:
+  Click body area first to
