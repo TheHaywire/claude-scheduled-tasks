@@ -74,6 +74,10 @@ Pick the best story with an image (not in COVERED_TOPICS). This is the hero imag
 4. "India foreign policy trade economy global impact news today 2026" — India angle
 5. "underreported conflict region tension overlooked news May 2026" — the story nobody covered
 
+After research, identify your **HOT TAKE** — the single most non-obvious interpretation of the lead story. This is what differentiates The World Briefing from every other news summary. It must be a specific, arguable claim — not a hedge. This drives the hook, the pull quote, and the Substack Note.
+
+**Hook formula:** Lead with consequence, not event. Not "Iran rejected the proposal" but "The peace process just died — and Beijing may have killed it on purpose."
+
 ---
 
 ## STEP 3 — Assess the world's current state
@@ -707,17 +711,24 @@ CRITICAL: Use HTML clipboard, NOT plain text. Plain text strips all `<a href>` l
 
 ---
 
-## NON-NEGOTIABLE RULES
+## STEP 10 — POST SUBSTACK NOTES (GROWTH ENGINE)
 
-1. **COVERED_TOPICS check first.** Never repeat a story from the last 4 sessions.
-2. **Subject line = the story.** Never date-based or generic.
-3. **Conflict Tracker pills** must reflect actual current conflicts/crises — never generic placeholders.
-4. **Regional Status Board** must be accurate to today's actual situation — never copy-paste from yesterday.
-5. **Semaform structure** for The Big Story: NEWS → ANALYSIS → WHY IT MATTERS → ROOM FOR DISAGREEMENT. In that order. Always.
-6. **Escalation meter** width must reflect your honest 0–100 assessment of tension level.
-7. **Pull quote** must be a real, specific quote from today's news — not a paraphrase.
-8. **India Lens** always present. Always find the angle. Even a seemingly unrelated story (e.g., Mali insurgency) has an India connection (Red Sea alt route, diaspora, peacekeeping, commodity prices).
-9. **Markets strip and narrative** must use real estimated data — never "XX" placeholders in the final output.
-10. **Write like a journalist.** Every sentence must earn its place. No filler. No "it remains to be seen." Interpret, don't just report.
-11. **Both Medium and Substack must be attempted every run.** If Medium is rate-limited, save the draft and log it, then still publish to Substack. Substack is the guaranteed publish destination — never skip it.
-12. **All hyperlinks must be clickable in both Medium and Substack.** Always use the HTML ClipboardItem approach (`new ClipboardItem({'text/html': blob})`), never plain text paste. Verify links appear as blue clickable text after paste.
+Post 1-2 Notes immediately after Substack publishes. These drive discovery and follows inside Substack's feed.
+
+### Note 1 — The Geopolitical Hot Take
+Navigate to https://substack.com/home (Notes tab) → "Write a note".
+Write the single most contrarian/non-obvious insight from today's Big Story:
+- First line: a bold, specific claim (not a summary). E.g. "Iran's rejection isn't stubbornness. It's a negotiating tactic Beijing coached them to use."
+- 2-3 sentences of sharp analysis — the thing most outlets missed
+- Final line: provocative question or implication
+- "Full breakdown + India angle in today's World Briefing 👇" + Substack post link
+No hashtags. No "follow for more." Just the sharpest take.
+
+### Note 2 — India Angle (post this one — it finds an underserved audience)
+Write a standalone Note framed specifically for Indian readers:
+- "Here's what [today's global story] actually means for India:"
+- 3 specific bullet points (trade impact / rupee / geopolitical position)
+- "Full India Lens in today's World Briefing 👇" + link
+
+Log both Note URLs.
+
